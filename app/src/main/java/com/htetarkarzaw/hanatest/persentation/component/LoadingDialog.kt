@@ -1,4 +1,4 @@
-package com.htetarkarzaw.twitterlite.ui.component
+package com.htetarkarzaw.hanatest.persentation.component
 
 import android.content.Context
 import android.graphics.Color
@@ -6,7 +6,7 @@ import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
-import com.htetarkarzaw.twitterlite.databinding.DialogLoadingBinding
+import com.htetarkarzaw.hanatest.databinding.DialogLoadingBinding
 
 class LoadingDialog(
     context: Context

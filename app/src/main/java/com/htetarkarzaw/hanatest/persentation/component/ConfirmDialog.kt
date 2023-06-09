@@ -1,4 +1,4 @@
-package com.htetarkarzaw.hanatest.ui.component
+package com.htetarkarzaw.hanatest.persentation.component
 
 import android.content.Context
 import android.graphics.Color

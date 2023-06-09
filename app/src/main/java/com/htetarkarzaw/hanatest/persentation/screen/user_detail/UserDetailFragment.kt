@@ -1,12 +1,10 @@
-package com.htetarkarzaw.hanatest.ui.screen
+package com.htetarkarzaw.hanatest.persentation.screen.user_detail
 
-import androidx.fragment.app.Fragment
 import com.htetarkarzaw.hanatest.databinding.FragmentUserDetailBinding
-import com.htetarkarzaw.hanatest.ui.base.BaseFragment
+import com.htetarkarzaw.hanatest.persentation.base.BaseFragment
+import dagger.hilt.android.AndroidEntryPoint
 
-/**
- * A simple [Fragment] subclass as the second destination in the navigation.
- */
+@AndroidEntryPoint
 class UserDetailFragment : BaseFragment<FragmentUserDetailBinding>(FragmentUserDetailBinding::inflate) {
     override fun observe() {
     }

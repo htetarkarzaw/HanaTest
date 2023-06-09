@@ -1,4 +1,4 @@
-package com.htetarkarzaw.hanatest.ui.base
+package com.htetarkarzaw.hanatest.persentation.base
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
