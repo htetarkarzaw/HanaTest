@@ -1,8 +1,8 @@
 package com.htetarkarzaw.hanatest.di
 
+import com.htetarkarzaw.hanatest.BuildConfig
 import com.htetarkarzaw.hanatest.data.remote.HanaApiService
 import com.htetarkarzaw.hanatest.utils.Endpoint
-import com.itkacher.okprofiler.BuildConfig
 import com.localebro.okhttpprofiler.OkHttpProfilerInterceptor
 import dagger.Module
 import dagger.Provides

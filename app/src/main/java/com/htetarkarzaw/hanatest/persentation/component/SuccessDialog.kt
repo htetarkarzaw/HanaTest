@@ -5,30 +5,25 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
 import androidx.appcompat.app.AlertDialog
-import com.htetarkarzaw.hanatest.databinding.DialogConfirmBinding
+import com.htetarkarzaw.hanatest.databinding.DialogSuccessBinding
 
-class ConfirmDialog(
+class SuccessDialog(
     context: Context
 ) : AlertDialog(context) {
 
-    private var _binding: DialogConfirmBinding? = null
+    private var _binding: DialogSuccessBinding? = null
     val binding get() = _binding!!
 
     init {
-        _binding = DialogConfirmBinding.inflate(LayoutInflater.from(context))
+        _binding = DialogSuccessBinding.inflate(LayoutInflater.from(context))
         setView(binding.root)
         window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         setCancelable(false)
     }
 
-    fun setUpDialog(title:String,message: String,onClickConfirm: () -> Unit) {
-        binding.tvError.text = message
-        binding.tvTitle.text = title
-        binding.btnCancel.setOnClickListener {
-            dismiss()
-        }
+    fun setUpDialog(message: String) {
+        binding.tvMessage.text = message
         binding.btnOkay.setOnClickListener {
-            onClickConfirm()
             dismiss()
         }
         show()

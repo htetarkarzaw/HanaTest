@@ -25,7 +25,7 @@ fun handleException(throwable: Exception): RemoteResource.CustomMessages {
         is UnknownHostException -> RemoteResource.CustomMessages.ServerError
         is ConnectException -> RemoteResource.CustomMessages.NoInternet
         is SocketTimeoutException -> RemoteResource.CustomMessages.SocketTimeOutException
-        else -> RemoteResource.CustomMessages.NoInternet
+        else -> RemoteResource.CustomMessages.SomethingWentWrong("Error:${throwable.message ?: throwable.localizedMessage ?: "Something Went Wrong"}")
     }
 }
 
@@ -42,7 +42,6 @@ private fun getErrorType(code: Int, message: String): RemoteResource.CustomMessa
 
         ErrorCodes.BadRequest.code -> RemoteResource.CustomMessages.BadRequest
         ErrorCodes.Conflict.code -> RemoteResource.CustomMessages.Conflict
-        ErrorCodes.InternalServerError.code -> RemoteResource.CustomMessages.InternalServerError
 
         ErrorCodes.NotFound.code -> RemoteResource.CustomMessages.NotFound
         ErrorCodes.NotAcceptable.code -> RemoteResource.CustomMessages.NotAcceptable

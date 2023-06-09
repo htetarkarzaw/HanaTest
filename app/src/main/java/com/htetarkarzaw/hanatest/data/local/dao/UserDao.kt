@@ -7,18 +7,21 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface UserDao {
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertMovies(movies: List<User>)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertUsers(movies: List<User>)
 
     @Query("SELECT * FROM ${Constant.HANA_TABLE_NAME}")
-    fun retrievesUpcomingMovies(): Flow<List<User>>
+    fun retrieveUsers(): Flow<List<User>>
 
     @Query("SELECT * FROM ${Constant.HANA_TABLE_NAME} WHERE id == :id")
-    suspend fun getMovieById(id: Long): User?
+    suspend fun getUserById(id: Long): User?
 
     @Query("SELECT * FROM ${Constant.HANA_TABLE_NAME} WHERE id == :id")
-    fun getMovieByIdViaFlow(id: Long): Flow<User>
+    fun retrieveUserByIdViaFlow(id: Int): Flow<User>
 
     @Update
-    suspend fun updateMovie(movie: User): Int
+    suspend fun updateUser(movie: User): Int
+
+    @Query("DELETE FROM ${Constant.HANA_TABLE_NAME}")
+    suspend fun deleteAllUsers()
 }

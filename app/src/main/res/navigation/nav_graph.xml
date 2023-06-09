@@ -8,17 +8,25 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.htetarkarzaw.hanatest.persentation.screen.home.HomeFragment"
-        android:label="@string/first_fragment_label"
+        android:label="@string/home_fragment_label"
         tools:layout="@layout/fragment_home">
 
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/userDetailFragment" />
+            android:id="@+id/action_homeFragment_to_userDetailFragment"
+            app:destination="@id/userDetailFragment" >
+            <argument
+                android:name="userId"
+                app:argType="integer"/>
+        </action>
     </fragment>
 
     <fragment
         android:id="@+id/userDetailFragment"
         android:name="com.htetarkarzaw.hanatest.persentation.screen.user_detail.UserDetailFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_user_detail" />
+        android:label="@string/user_detail_fragment_label"
+        tools:layout="@layout/fragment_user_detail" >
+        <argument
+            android:name="userId"
+            app:argType="integer"/>
+    </fragment>
 </navigation>

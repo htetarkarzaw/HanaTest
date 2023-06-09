@@ -7,6 +7,7 @@ import com.htetarkarzaw.hanatest.utils.Endpoint
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.POST
 
 
 interface HanaApiService {
@@ -14,8 +15,8 @@ interface HanaApiService {
     @GET(Endpoint.HANA_GET_USERS)
     suspend fun fetchPopularMovies(): Response<UsersDTO>
 
-    @GET(Endpoint.HANA_POST)
-    suspend fun fetchUpcomingMovie(
+    @POST(Endpoint.HANA_POST)
+    suspend fun uploadUser(
         @Body criteria: PostModelCriteria
     ): Response<PostDTO>
 }

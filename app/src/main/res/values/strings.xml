@@ -2,8 +2,8 @@
     <string name="app_name">HanaTest</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
+    <string name="home_fragment_label">Home</string>
+    <string name="user_detail_fragment_label">User Detail</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
@@ -12,4 +12,18 @@
     <string name="cancel">Cancel</string>
     <string name="something_went_wrong">Something went wrong!</string>
     <string name="generate_json">Generate Json</string>
+    <string name="upload">Upload</string>
+    <string name="enter_body">Enter body.</string>
+    <string name="enter_title">Enter title.</string>
+    <string name="enter_user_id">Enter user Id.</string>
+    <string name="upload_user">Upload User</string>
+    <string name="there_is_no_user_to_show">There is no user to show.</string>
+    <string name="are_you_sure">Are you sure?</string>
+    <string name="userid">UserId</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="website">Website</string>
+    <string name="phone">Phone</string>
+    <string name="address">Address</string>
+    <string name="company">Company</string>
 </resources>
