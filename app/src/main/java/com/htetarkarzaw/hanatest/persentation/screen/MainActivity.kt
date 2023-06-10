@@ -27,6 +27,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
     private lateinit var appBarConfiguration: AppBarConfiguration
     private val viewModel: MainViewModel by viewModels()
     private val successDialog: SuccessDialog by lazy { SuccessDialog(this) }
+    private lateinit var uploadUserDialog: UploadUserDialog
     private val permissions =
         arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE)
     private val permissionForJsonFile =
@@ -49,13 +50,15 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
 
     override fun initUi() {
         setSupportActionBar(binding.toolbar)
-
+        uploadUserDialog = UploadUserDialog(this,viewModel)
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
 
         binding.fab.setOnClickListener {
-            UploadUserDialog(this, viewModel).show()
+            if (!uploadUserDialog.isShowing) {
+                uploadUserDialog.show()
+            }
         }
     }
 
@@ -88,7 +91,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
         lifecycleScope.launch {
             viewModel.createJson.collectLatest {
                 hideLoadingDialog()
-                when(it){
+                when (it) {
                     is Resource.Error -> {
                         errorDialog.setUpDialog("Create Json:${it.message}", isRetry = false) {
                             errorDialog.dismiss()
