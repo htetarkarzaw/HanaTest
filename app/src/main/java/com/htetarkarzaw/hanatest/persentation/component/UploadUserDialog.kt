@@ -20,7 +20,6 @@ class UploadUserDialog(
         window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         setCancelable(true)
         setCanceledOnTouchOutside(true)
-
         binding.btnUpload.setOnClickListener {
             val userId = binding.etUserId.text.toString().trim()
             val title = binding.etTitle.text.toString().trim()
@@ -46,5 +45,13 @@ class UploadUserDialog(
             viewModel.uploadUser(userId = userId, title = title, body = body)
             dismiss()
         }
+    }
+
+    override fun show() {
+        super.show()
+        binding.etUserId.text?.clear()
+        binding.etTitle.text?.clear()
+        binding.etBody.text?.clear()
+        binding.root.clearFocus()
     }
 }
