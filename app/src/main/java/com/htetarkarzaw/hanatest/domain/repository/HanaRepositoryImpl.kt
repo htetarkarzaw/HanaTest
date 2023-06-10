@@ -2,7 +2,7 @@ package com.htetarkarzaw.hanatest.domain.repository
 
 import android.util.Log
 import com.htetarkarzaw.hanatest.data.Resource
-import com.htetarkarzaw.hanatest.data.local.HanaDatabase
+import com.htetarkarzaw.hanatest.data.local.dao.UserDao
 import com.htetarkarzaw.hanatest.data.local.entity.User
 import com.htetarkarzaw.hanatest.data.remote.HanaApiService
 import com.htetarkarzaw.hanatest.data.remote.RemoteResource
@@ -25,11 +25,10 @@ import javax.inject.Inject
 
 class HanaRepositoryImpl @Inject constructor(
     private val apiService: HanaApiService,
-    db: HanaDatabase
+    private val dao: UserDao
 ) : HanaRepository {
-    private val dao = db.userDao()
     override suspend fun fetchUsers(): Flow<Resource<String>> = flow {
-        when (val response = safeApiCall { apiService.fetchPopularMovies() }) {
+        when (val response = safeApiCall { apiService.fetchUsers() }) {
             is RemoteResource.ErrorEvent -> {
                 emit(Resource.Error(response.getErrorMessage()))
             }

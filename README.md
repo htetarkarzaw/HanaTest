@@ -23,3 +23,11 @@ HanaTest app uses Android Official recommended architecture MVVM with the modify
 - Check out latest commit point at `main` branch and sync project.
 - Make sure that you use `JavaVersion_17` for your gradle JDK.
 - After that you can run on your device or emulator.
+
+## How to run HanaTest app test?
+### To run Dao Test
+- Open `src/androidTest/java/com/htetarkarzaw/hanatest/data/UserDaoTest.kt` and Run `UserDaoTest`
+
+### To run unit Test
+- Open `src/test[unitTest]/java/com/htetarkarzaw/hanatest/repository/HanaRepositoryTest.kt` and Run `HanaRepositoryTest`
+

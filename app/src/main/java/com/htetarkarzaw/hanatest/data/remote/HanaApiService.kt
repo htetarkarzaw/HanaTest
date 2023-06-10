@@ -11,9 +11,8 @@ import retrofit2.http.POST
 
 
 interface HanaApiService {
-
     @GET(Endpoint.HANA_GET_USERS)
-    suspend fun fetchPopularMovies(): Response<UsersDTO>
+    suspend fun fetchUsers(): Response<UsersDTO>
 
     @POST(Endpoint.HANA_POST)
     suspend fun uploadUser(

@@ -1,6 +1,6 @@
 package com.htetarkarzaw.hanatest.di
 
-import com.htetarkarzaw.hanatest.data.local.HanaDatabase
+import com.htetarkarzaw.hanatest.data.local.dao.UserDao
 import com.htetarkarzaw.hanatest.data.remote.HanaApiService
 import com.htetarkarzaw.hanatest.domain.repository.HanaRepository
 import com.htetarkarzaw.hanatest.domain.repository.HanaRepositoryImpl
@@ -15,7 +15,7 @@ import javax.inject.Singleton
 object RepoModule {
     @Provides
     @Singleton
-    fun provideHanaRepository(apiService: HanaApiService, db: HanaDatabase): HanaRepository {
-        return HanaRepositoryImpl(apiService = apiService, db = db)
+    fun provideHanaRepository(apiService: HanaApiService, dao: UserDao): HanaRepository {
+        return HanaRepositoryImpl(apiService = apiService, dao = dao)
     }
 }
